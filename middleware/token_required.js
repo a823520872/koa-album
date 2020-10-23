@@ -6,7 +6,7 @@ module.exports = async (ctx, next) => {
 
     if (!user) {
         ctx.body = {
-            code: 0,
+            code: -1,
             msg: '请先登录'
         }
         return

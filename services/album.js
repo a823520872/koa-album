@@ -1,17 +1,23 @@
 const Album = require('../models/album')
 
 class AlbumService {
-    async findOne(params) {
-        return await Album.findOne(params)
+    find(params) {
+        return Album.find(params)
     }
-    async create(params) {
-        return await Album.create(params)
+    findOne(params) {
+        return Album.findOne(params)
     }
-    async updateOne(values, params) {
-        return await Album.updateOne(values, params)
+    findById(id) {
+        return Album.findById(id)
     }
-    async destroy(values, params) {
-        return await Album.updateOne(values, params)
+    create(params) {
+        return Album.create(params)
+    }
+    updateOne(values, params) {
+        return Album.updateOne(values, params)
+    }
+    destroy(values, params) {
+        return Album.updateOne(values, params)
     }
 }
 

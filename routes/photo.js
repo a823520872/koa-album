@@ -1,5 +1,5 @@
 const router = require('koa-router')()
-const PhotoController = require()
+const PhotoController = require('../controllers/photo')
 const tokenRequired = require('../middleware/token_required')
 const upload = require('../middleware/upload')
 

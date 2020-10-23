@@ -1,9 +1,22 @@
 const mongoose = require('mongoose')
-const PhotoSchema = require('./photo')
+// const PhotoSchema = require('./photo')
 
 const AlbumSchema = mongoose.Schema({
     user_id: String,
-    photo: [PhotoSchema],
+    name: String,
+    photos: [String],
+    private: {
+        type: Boolean,
+        default: false
+    },
+    created: {
+        type: Date,
+        default: Date.now()
+    },
+    updated: {
+        type: Date,
+        default: null
+    },
     deleted: {
         type: Date,
         default: null

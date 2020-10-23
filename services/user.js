@@ -1,14 +1,14 @@
 const User = require('../models/user')
 
 class UserService {
-    async findOne(params) {
-        return await User.findOne(params)
+    findOne(params) {
+        return User.findOne(params)
     }
-    async create(params) {
-        return await User.create(params)
+    create(params) {
+        return User.create(params)
     }
-    async updateOne(values, params) {
-        return await User.updateOne(values, params)
+    updateOne(values, params) {
+        return User.updateOne(values, params)
     }
 }
 

@@ -6,7 +6,7 @@ const appId = require('../config').AppID
 // const _ = require('lodash')
 
 class WXController {
-    async login(ctx) {
+    async auth(ctx) {
         let { code } = ctx.query
         try {
             let { session_key, openid } = await WXService.auth(code)
@@ -37,9 +37,11 @@ class WXController {
                 body: { encryptedData, iv }
             } = ctx.request
             let pc = new WXBizDataCrypt(appId, user.session_key)
-            let newUser = pc.decryptData(encryptedData, iv)
+            console.log(encryptedData);
+            let newUser = pc.decryptData(encryptedData.trim(), iv)
             let { nickName, avatarUrl } = newUser
             let avatar = await WXService.upload(avatarUrl)
+            console.log(avatar);
             await UserService.updateOne({ openid: user.openid }, { name: nickName, avatar })
             let wx = await WXService.findOne({ openid: user.openid })
             if (!wx) {
